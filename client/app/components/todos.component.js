@@ -8,6 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
+
 var core_1 = require('@angular/core');
 var todo_service_1 = require('../services/todo.service');
 var TodosComponent = (function () {
@@ -82,6 +84,18 @@ var TodosComponent = (function () {
             }
         });
     };
+
+    TodosComponent.prototype.todosTotal = function (todosCount) {
+        var _this = this;
+        this.todos = [];
+        this._todoService.getTodos()
+            .subscribe(function (todos) {
+            _this.todos = todos;
+        var todosCount = todos.length;
+
+        });
+    }
+
     TodosComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
@@ -91,6 +105,8 @@ var TodosComponent = (function () {
         __metadata('design:paramtypes', [todo_service_1.TodoService])
     ], TodosComponent);
     return TodosComponent;
+console.log(todosCount);
+
 }());
 exports.TodosComponent = TodosComponent;
 //# sourceMappingURL=todos.component.js.map
