@@ -2,7 +2,9 @@
   "name": "meantodos",
   "version": "1.0.0",
   "scripts": {
-    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "ng": "ng",
+    "start": "node server.js",
+    "build": "ng build",
     "lite": "lite-server",
     "postinstall": "typings install",
     "tsc": "tsc",
