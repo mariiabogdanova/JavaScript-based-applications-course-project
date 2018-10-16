@@ -21,7 +21,9 @@ var TodosComponent = (function () {
             .subscribe(function (todos) {
             _this.todos = todos;
         var todosCount = todos.length;
-        $( ".done_count" ).html(todosCount);
+        // $( ".done_count" ).html(todosCount);
+        getElementByClassName("done_count").innerHTML = todosCount;
+
         //alert(todosCount);
         });
     };
