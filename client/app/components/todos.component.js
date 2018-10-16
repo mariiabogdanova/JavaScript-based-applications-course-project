@@ -22,7 +22,7 @@ var TodosComponent = (function () {
             _this.todos = todos;
         var todosCount = todos.length;
         // $( ".done_count" ).html(todosCount);
-        getElementsByClassName("done_count").innerHTML = todosCount;
+        document.getElementsById("done_count").innerHTML = todosCount;
 
         //alert(todosCount);
         });
