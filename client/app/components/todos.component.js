@@ -20,6 +20,8 @@ var TodosComponent = (function () {
         this._todoService.getTodos()
             .subscribe(function (todos) {
             _this.todos = todos;
+        var todosCount = todos.length;
+        alert(todosCount);
         });
     };
     TodosComponent.prototype.addTodo = function (event, todoText) {
