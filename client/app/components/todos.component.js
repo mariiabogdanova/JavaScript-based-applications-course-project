@@ -16,20 +16,36 @@ var TodosComponent = (function () {
     }
     TodosComponent.prototype.ngOnInit = function () {
         var _this = this;
+        var i = 0;
         this.todos = [];
         this._todoService.getTodos()
             .subscribe(function (todos) {
             _this.todos = todos;
-        var todosCount = todos.length;
-        // $( ".done_count" ).html(todosCount);
-        document.getElementsById("done_count").innerHTML = todosCount;
 
-        //alert(todosCount);
-        });
-    };
+            var completed = [];
+            var incompleted = [];
+            var todosCount = todos.length;
+            $( "#total_count" ).html(todosCount);
+
+            for ( i=0; i<todosCount; i++){  
+      
+                if (_this.todos[i].isCompleted == true){
+                    completed.push(_this.todos[i]);
+                    var completedTodoCount = completed.length;
+                } else{
+                    incompleted.push(_this.todos[i]);
+                    var incompletedTodoCount = incompleted.length;
+                }
+                }
+            $( "#todo_count" ).html(incompletedTodoCount);
+            $( "#done_count" ).html(completedTodoCount);
+            });
+        };
     TodosComponent.prototype.addTodo = function (event, todoText) {
         var _this = this;
         var result;
+        // this.todos = [];
+        // this._todoService.getTodos()
         var newTodo = {
             text: todoText.value,
             isCompleted: false
@@ -38,7 +54,11 @@ var TodosComponent = (function () {
         result.subscribe(function (x) {
             _this.todos.push(newTodo);
             todoText.value = '';
+            // _this.todos = todos;
+            // var todosCount = todos.length;
+            // $( "#done_count" ).html(todosCount);
         });
+        
     };
     TodosComponent.prototype.setEditState = function (todo, state) {
         if (state) {
@@ -89,30 +109,30 @@ var TodosComponent = (function () {
     };
 
     
-TodosComponent.prototype.totalTodos = function (todo) {
-    var _this = this;
-    this.completed = [];
-    this.incompleted = [];
-    this.todos = [];
-    this._todoService.getTodos()
-        .subscribe(function (todos) {
-        _this.todos = todos;
-        var todosCount = todos.length;
-        alert(todosCount);
-        for (var i=1; i=todosCount; i++){
-            if (_this.todos[i].isCompleted == true){
-                _this.completed.push(_this.todos[i]);
-                var completedTodo = _this.completed.length;
-            }
-        else{
-            _this.incompleted.push(_this.todos[i]);
-            var incompletedTodo = _this.incompleted.length;
-        }
-        alert(completedTodo);
-        alert(incompletedTodo);
-        }
-    });
-};
+// TodosComponent.prototype.totalTodos = function (todo) {
+//     var _this = this;
+//     this.completed = [];
+//     this.incompleted = [];
+//     this.todos = [];
+//     this._todoService.getTodos()
+//         .subscribe(function (todos) {
+//         _this.todos = todos;
+//         var todosCount = todos.length;
+//         alert(todosCount);
+//         for (var i=1; i=todosCount; i++){
+//             if (_this.todos[i].isCompleted == true){
+//                 _this.completed.push(_this.todos[i]);
+//                 var completedTodo = _this.completed.length;
+//             }
+//         else{
+//             _this.incompleted.push(_this.todos[i]);
+//             var incompletedTodo = _this.incompleted.length;
+//         }
+//         alert(completedTodo);
+//         alert(incompletedTodo);
+//         }
+//     });
+// };
 
 
 
