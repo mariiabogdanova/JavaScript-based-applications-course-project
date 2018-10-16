@@ -8,8 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
-
 var core_1 = require('@angular/core');
 var todo_service_1 = require('../services/todo.service');
 var TodosComponent = (function () {
@@ -85,16 +83,33 @@ var TodosComponent = (function () {
         });
     };
 
-    TodosComponent.prototype.todosTotal = function (todosCount) {
-        var _this = this;
-        this.todos = [];
-        this._todoService.getTodos()
-            .subscribe(function (todos) {
-            _this.todos = todos;
+    
+TodosComponent.prototype.totalTodos = function (todo) {
+    var _this = this;
+    this.completed = [];
+    this.incompleted = [];
+    this.todos = [];
+    this._todoService.getTodos()
+        .subscribe(function (todos) {
+        _this.todos = todos;
         var todosCount = todos.length;
+        alert(todosCount);
+        for (var i=1; i=todosCount; i++){
+            if (_this.todos[i].isCompleted == true){
+                _this.completed.push(_this.todos[i]);
+                var completedTodo = _this.completed.length;
+            }
+        else{
+            _this.incompleted.push(_this.todos[i]);
+            var incompletedTodo = _this.incompleted.length;
+        }
+        alert(completedTodo);
+        alert(incompletedTodo);
+        }
+    });
+};
 
-        });
-    }
+
 
     TodosComponent = __decorate([
         core_1.Component({
@@ -105,8 +120,8 @@ var TodosComponent = (function () {
         __metadata('design:paramtypes', [todo_service_1.TodoService])
     ], TodosComponent);
     return TodosComponent;
-console.log(todosCount);
-
 }());
 exports.TodosComponent = TodosComponent;
 //# sourceMappingURL=todos.component.js.map
+
+

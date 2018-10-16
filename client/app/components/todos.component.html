@@ -1,5 +1,4 @@
 <div class="add-todo-form text-center">
-    <!-- <h1>Add a task</h1> -->
     <div class="form-group">
         <input class="form-control input-lg" placeholder="Add a task" autofocus #todoText>
         <br>
@@ -23,10 +22,9 @@
         </div>  
     </div>
 </div>
-
-<div class="todos-statistics">
-    <div>Tasks planned:</div>
-    <div>{{todosCount}}</div>
-    <div>Tasks done:</div>
-    <div>Tasks remaining:</div>
+<div>
+    <div>Done</div>
+    <div>Not dove</div>
+    <div>Total</div>
+    <input (click)="totalTodos()" type="button" class="btn btn-default pull-right" value="Edit"> 
 </div>

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongojs = require('mongojs');
-var db = mongojs('mongodb://user:user123@ds131963.mlab.com:31963/db1', ['todos']);
+var db = mongojs('mongodb://user1:user123@ds131963.mlab.com:31963/db1',['todos']);
 
 // Get Todos
 router.get('/todos', function(req, res, next){
@@ -90,5 +90,8 @@ router.delete('/todo/:id', function(req, res, next){
     });
 });
 
-
 module.exports = router;
+
+
+
+//var db = mongojs('mongodb://user:user123@ds131963.mlab.com:31963/db1', ['todos']);
