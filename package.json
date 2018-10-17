@@ -9,9 +9,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular-highcharts": "^6.2.6",
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "highcharts": "^6.2.0",
     "mongojs": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/highcharts": "^5.0.31"
   }
 }

@@ -4,6 +4,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
+
+    
 };
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -37,9 +39,12 @@ var TodosComponent = (function () {
                     var incompletedTodoCount = incompleted.length;
                 }
                 }
+            // alert("Hello! You have " + incompletedTodoCount + " tasks to do! You have finnished " + completedTodoCount + " out of " + todosCount + " tasks. Good job!")
             $( "#todo_count" ).html(incompletedTodoCount);
             $( "#done_count" ).html(completedTodoCount);
             });
+
+
         };
     TodosComponent.prototype.addTodo = function (event, todoText) {
         var _this = this;
@@ -54,9 +59,9 @@ var TodosComponent = (function () {
         result.subscribe(function (x) {
             _this.todos.push(newTodo);
             todoText.value = '';
-            // _this.todos = todos;
-            // var todosCount = todos.length;
-            // $( "#done_count" ).html(todosCount);
+            // todosCount = this.todosCount;
+            // todosCount ++;
+            // $( "#total_count" ).html(todosCount);
         });
         
     };
@@ -107,33 +112,6 @@ var TodosComponent = (function () {
             }
         });
     };
-
-    
-// TodosComponent.prototype.totalTodos = function (todo) {
-//     var _this = this;
-//     this.completed = [];
-//     this.incompleted = [];
-//     this.todos = [];
-//     this._todoService.getTodos()
-//         .subscribe(function (todos) {
-//         _this.todos = todos;
-//         var todosCount = todos.length;
-//         alert(todosCount);
-//         for (var i=1; i=todosCount; i++){
-//             if (_this.todos[i].isCompleted == true){
-//                 _this.completed.push(_this.todos[i]);
-//                 var completedTodo = _this.completed.length;
-//             }
-//         else{
-//             _this.incompleted.push(_this.todos[i]);
-//             var incompletedTodo = _this.incompleted.length;
-//         }
-//         alert(completedTodo);
-//         alert(incompletedTodo);
-//         }
-//     });
-// };
-
 
 
     TodosComponent = __decorate([

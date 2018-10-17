@@ -1,3 +1,5 @@
+
+
 import { Component, OnInit} from '@angular/core';
 import {TodoService} from '../services/todo.service';
 import {Todo} from '../Todo';
@@ -21,6 +23,7 @@ export class TodosComponent implements OnInit {
       .subscribe(todos => {
         this.todos = todos;
       });
+      
   }
   
   addTodo(event, todoText){
